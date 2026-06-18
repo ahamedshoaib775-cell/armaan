@@ -1,17 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Wifi, Battery, Signal } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <>
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-4"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="inline-flex items-center gap-3 glass rounded-full px-4 py-3 shadow-2xl shadow-emerald-950/20">
+            <div className="relative w-10 h-10 rounded-2xl overflow-hidden ring-1 ring-white/10">
+              <Image src="/logo.jpeg" alt="BinSense logo" fill className="object-cover" sizes="40px" />
+            </div>
+            <div>
+              <p className="text-white font-bold tracking-wide leading-none">BinSense</p>
+              <p className="text-emerald-300/70 text-[10px] uppercase tracking-[0.3em] leading-none mt-1">
+                Smart Bins
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.header>
+
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20">
       {/* Background Effects */}
       <div className="absolute inset-0 grid-pattern" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-[120px]" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg: aesthetic px-8 py-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <motion.div
@@ -197,5 +220,6 @@ export default function Hero() {
         </motion.div>
       </motion.div>
     </section>
+    </>
   );
 }

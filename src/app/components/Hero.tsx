@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Wifi, Battery, Signal } from "lucide-react";
+import { Wifi, Battery, Signal } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -63,21 +63,6 @@ export default function Hero() {
               communities.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <button className="group relative px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105 glow-green flex items-center justify-center gap-2">
-                Explore the Tech
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="group px-8 py-4 glass text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
-                <Play className="w-5 h-5" />
-                Live Demo
-              </button>
-            </motion.div>
           </motion.div>
 
           {/* Right Content - Smart Bin Visual */}

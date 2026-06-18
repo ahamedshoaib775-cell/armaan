@@ -22,8 +22,7 @@ export default function Footer() {
             <Quote className="w-8 h-8 text-emerald-400" />
           </div>
           <blockquote className="text-2xl sm:text-3xl lg:text-4xl font-medium text-white leading-relaxed max-w-4xl mx-auto mb-8">
-            &ldquo;We&apos;re not just building a product. We&apos;re building a cleaner future.
-            This is only Chapter 2 of our journey. Stay with us!&rdquo;
+            &ldquo;We&apos;re not just building a product. We&apos;re building a cleaner future.&rdquo;
           </blockquote>
           <div className="flex items-center justify-center gap-3">
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white font-bold text-lg">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { useEffect, useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LoadingWrapper from "./components/LoadingWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,25 +24,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading delay; replace with actual loading logic if needed
-    const timer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      {loading && (
-        <div id="loader" className="fixed inset-0 flex items-center justify-center bg-[#050505] z-50">
-          <div className="spinner"></div>
-        </div>
-      )}
-      <body className="min-h-full flex flex-col bg-[#050505]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#050505]">
+        <LoadingWrapper>{children}</LoadingWrapper>
+      </body>
     </html>
   );
 }

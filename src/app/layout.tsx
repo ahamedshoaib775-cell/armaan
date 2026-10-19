@@ -24,15 +24,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Keep the page hidden from users permanently (maintenance mode)
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay; replace with actual loading logic if needed
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="fixed inset-0 flex items-center justify-center bg-[#050505] text-white">
-        <h1 className="text-4xl font-bold">Site is currently unavailable</h1>
-      </body>
+      {loading && (
+        <div id="loader" className="fixed inset-0 flex items-center justify-center bg-[#050505] z-50">
+          <div className="spinner"></div>
+        </div>
+      )}
+      <body className="min-h-full flex flex-col bg-[#050505]">{children}</body>
     </html>
   );
 }

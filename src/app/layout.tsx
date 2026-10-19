@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { useEffect, useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -23,12 +24,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Keep the page hidden from users permanently (maintenance mode)
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#050505]">{children}</body>
+      <body className="fixed inset-0 flex items-center justify-center bg-[#050505] text-white">
+        <h1 className="text-4xl font-bold">Site is currently unavailable</h1>
+      </body>
     </html>
   );
 }
